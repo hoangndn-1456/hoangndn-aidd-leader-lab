@@ -16,7 +16,9 @@
 | Mục | Link |
 |---|---|
 | Repo | https://github.com/hoangndn-1456/hoangndn-aidd-leader-lab |
-| GitHub Project (view mặc định) | https://github.com/users/hoangndn-1456/projects/3 |
+| GitHub Project (view mặc định: LAB-5 Backlog) | https://github.com/users/hoangndn-1456/projects/3 |
+| View "LAB-5 Backlog": bảng đủ SWP, giờ, người phụ trách giả định, nhóm theo issue cha | https://github.com/users/hoangndn-1456/projects/3/views/16 |
+| View "Sprint 1": các item của sprint giả lập | https://github.com/users/hoangndn-1456/projects/3/views/17 |
 | Báo cáo HTML của skill chấm SWP | `reports/estimate-swp-hoangndn-1456-project-3-20261023-152239.html` (GitHub chỉ hiện mã nguồn; tải file về rồi mở bằng trình duyệt) |
 | Bộ spec LAB-4 đã nộp (thư mục Drive) | https://drive.google.com/drive/folders/19pAtpeGNUPFsqRI2sa_7fz8qGyCpN5Gi (cần tài khoản Sun*; đã chia sẻ cho L&D và trainer) |
 
