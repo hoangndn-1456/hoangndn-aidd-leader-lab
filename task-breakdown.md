@@ -4,17 +4,18 @@ Task được chia từ bộ spec LAB-4 bản nộp 12/10/2026 và các dòng `P
 
 ## 1. Nguyên tắc chia task
 
-### 1.1 Luật chia issue (chép nguyên văn từ plan, phase 02 mục B)
+### 1.1 Luật chia issue
 
-> **B. Luật chia issue — một luật, ngoại lệ theo tầng** (ghi nguyên văn vào task-breakdown mục 1) (review 17/10 chiều, A-09 + B):
-> - Cấp 1 epic (`type:epic`) = một feature.
-> - Cấp 2 issue = một màn, một luồng TECH, một nhóm DB/API, hoặc một hạng mục ràng buộc. Issue là **lá** (`type:devtask`, `type:testdesign`, `type:testexecution`) khi có một discipline chính. Công việc phải nằm gọn trong một lớp hoặc một luồng hai lớp có giới hạn (Scope dự kiến ≤ 5).
-> - Vượt ngưỡng trên thì issue thành **cha** `type:story` và tách sub-issue cấp 3 theo lớp (API/BE, FE, test). Mọi issue cha đều phải có con.
-> - **Độ hạt theo tầng.** Script ghi tầng của từng màn và cờ Sprint 1 vào registry (cột `tang`, `sprint1`). Script áp dụng luật 相対 + BR-PERM-01 ở prompt 10; worker không tự quyết (review 17/10, vòng 3 B). Màn tầng 1 và màn có trong Sprint 1 → story + sub-issue theo lớp. Màn tầng 3 đơn giản → một lá `type:devtask`, DoD có mục FE, BE, test. Đây là ngoại lệ được ghi rõ của luật "một discipline chính"; Scope ≥ 8 vẫn phải tách. Màn tầng 2 theo luật chung ở trên. Mỗi epic có ≥ 1 story có sub-issue. Mục tiêu khoảng 200 item (có thể tới ~230 nếu lá gộp bị tách lại).
-> - Dừng tách khi lá có DoD ≥ 2 mục kiểm tra được trong một lượt review. Sau lần chấm nháp, lá có Scope ≥ 8 hoặc SWP ≥ 16 phải tách hoặc ghi lý do. Đây là bước kiểm tra issue quá to ở phase 05.
-> - Phần kiểm tra của dòng DT nằm ở issue ràng buộc. Issue màn chỉ ghi "phụ thuộc #…", không lặp lại việc đó trong DoD, để SWP không bị tính hai lần.
+Một luật chung, với ngoại lệ theo tầng của màn:
 
-"DT" là dòng có cờ ĐẶC THÙ ở mục 6.3 của spec màn; "tầng" là mức quan trọng của màn theo traceability LAB-4. Mục tiêu "khoảng 200 item" được đặt trước khi chạy. Thực tế lên 380 item vì phase 04c bọc story theo guideline (mục 1.4).
+- Cấp 1, epic (`type:epic`) = một feature của LAB-4.
+- Cấp 2 = một màn, một luồng TECH, một nhóm DB/API hoặc một hạng mục ràng buộc. Issue đó là **lá** (`type:devtask`, `type:testdesign`, `type:testexecution`) khi có một discipline chính và nằm gọn trong một lớp, hoặc một luồng hai lớp có giới hạn (Scope dự kiến không quá 5).
+- Vượt ngưỡng đó thì issue thành **cha** `type:story` và tách sub-issue cấp 3 theo lớp (API/BE, FE, test). Mọi issue cha đều có con.
+- Độ hạt theo tầng, do script ghi vào registry (cột `tang`, cờ `sprint1`): màn tầng 1 và màn có trong Sprint 1 thành story kèm sub-issue theo lớp. Màn tầng 3 đơn giản là một lá `type:devtask` có DoD gồm FE, BE, test; đây là ngoại lệ được ghi rõ của luật một discipline chính, và Scope từ 8 trở lên vẫn phải tách. Màn tầng 2 theo luật chung. Mỗi epic có ít nhất một story có sub-issue.
+- Dừng tách khi lá có DoD từ 2 mục kiểm tra được trong một lượt review. Sau lần chấm nháp, lá có Scope từ 8 hoặc SWP từ 16 phải tách hoặc ghi lý do.
+- Phần kiểm tra của dòng ĐẶC THÙ nằm ở issue ràng buộc. Issue màn chỉ ghi "phụ thuộc #…", không lặp lại việc đó trong DoD, để SWP không bị tính hai lần.
+
+"DT" là dòng có cờ ĐẶC THÙ ở mục 6.3 của spec màn; "tầng" là mức quan trọng của màn theo traceability LAB-4. Tôi đặt mục tiêu khoảng 200 item trước khi chạy. Thực tế là 380 item vì các lá nằm ngay dưới epic được bọc thêm story theo guideline (mục 1.4).
 
 ### 1.2 Tiêu chí hoàn thành
 
@@ -51,11 +52,9 @@ Quan hệ cha con dùng sub-issue thật của GitHub (field `Parent issue`), kh
 | Milestone cho Sprint và burn-down (mục 5.5) | Dùng field `Iteration` cho sprint, không tạo Milestone | Lệch tự chọn: đề bắt buộc dùng Iteration; chỉ xếp sprint ở một nơi để tránh hai nguồn lệch nhau |
 | Target Version | Chưa dùng | Lệch có lý do: backlog chưa chia bản phát hành |
 
-### 1.5 Lệch so với plan
+### 1.5 Lệch so với kế hoạch ban đầu
 
-| Plan định | Đã làm | Lý do |
-|---|---|---|
-| Phase 06 lưu snapshot `after-estimate.json` (SWP, giờ, Iteration, người phụ trách của mọi item) trước khi phase 07 đổi trạng thái | Không tạo file này, thay bằng hai file có sẵn: dump `project-dump-pre-sprint-v3.json` (chụp trước khi áp Sprint 1, đủ SWP và giờ, mọi item còn New) và `07-sprint-recovery.json` (giá trị cũ của 81 lệnh ghi Sprint 1, dùng để khôi phục) | Phase 07 đã áp dụng sáng 24/10, trong lúc phiên phase 06 đang ghi Priority. Nếu tạo snapshot sau đó, file sẽ chứa trạng thái Sprint giả lập, sai ý nghĩa. Khi chụp dump v3, Priority mới được ghi một phần. Priority có recovery riêng ở `06-priority-snapshot.json` và `06-priority-snapshot-2.json` |
+Kế hoạch ban đầu có một bản chụp SWP, giờ, Iteration và người phụ trách của mọi item, lưu trước khi đổi trạng thái cho Sprint giả lập. Bản chụp này không được tạo: lần áp đầu của Sprint 1 chạy sáng 24/10, trong lúc phần ghi Priority còn đang chạy, nên bản chụp sau đó sẽ chứa trạng thái giả lập và sai ý nghĩa. Thay vào đó tôi giữ bản dump Project chụp trước Sprint 1 (đủ SWP và giờ, mọi item còn `New`) và bản lưu giá trị cũ của các lệnh ghi, để khôi phục khi cần. Các file này nằm ngoài repo nộp.
 
 ## 2. Spec → issue
 
@@ -158,22 +157,22 @@ Bảng bao phủ mọi spec màn, TECH, DB, ADR, nhóm API, dòng hẹn và dòn
 | HEN-BM54 | — | — | BM-2-901-54 là tài liệu mức hàm, không phải việc phát triển của nền tảng chung. P5-S07 đã chốt: không viết ở LAB-5. Đặc tả hàm nằm trong tiêu chí hoàn thành của issue code liên quan, không tách issue riêng. |
 | HEN-TOKYO | #42 | #198 | — |
 
-Có 13 dòng registry chưa thành issue; lý do do worker ghi:
+Có 13 dòng registry chưa thành issue; lý do ghi bên dưới:
 
 | Dòng registry | Vì sao chưa thành issue |
 |---|---|
-| FUNC-023 | spec_files của unit này chưa mô tả máy trạng thái vòng đời lô; SCR020, SCR021, SCR022 không có trạng thái lô. Chưa đủ cơ sở viết DoD có thể kiểm tra. Cần BrSE xếp vào issue của unit lot-intake-b hoặc bổ sung spec. |
-| FUNC-027 | Việc ghi trước/sau và lý do khi điều chỉnh lô thuộc màn SCR024 (Điều chỉnh thuộc tính lô). Spec nằm ngoài spec_files của unit này; cần gắn vào issue SCR024 ở unit lot-intake-b. |
-| FUNC-037 | FUNC-037 là ràng buộc CAP-HUMAN-01 (chặn đường nhập tự động); spec đánh dấu ĐẶC THÙ ở L10 và phần truy vết. Issue ràng buộc đặc thù đã phụ trách phần kiểm tra; đưa vào unit này sẽ tính SWP hai lần. |
-| FUNC-045 | Chặn sửa trực tiếp ngày đã khóa là ràng buộc BR-CLOSE-01 (dòng ĐẶC THÙ), do issue ràng buộc xử lý. spec_files của unit không có route nào thực hiện việc chặn; TECH ghi rõ không kiểm tra ngày khóa. |
-| FUNC-096 | Tích hợp máy in nhiệt thuộc nhóm in ấn FG-14; đặc tả ở SCR130 nằm ngoài spec_files của unit này. SCR020-Q8 (in phiếu ngay sau đăng ký) còn open nên chưa có cơ sở viết DoD. |
-| FUNC-098 | Thiết kế bố cục chứng từ in thuộc nhóm FG-14; đặc tả ở SCR130 nằm ngoài spec_files của unit này. Cần gắn vào issue SCR130 của unit lot-intake-b. |
-| FUNC-099 | Xuất PDF cho 4 biểu mẫu còn lại thuộc nhóm FG-14; spec_files của unit này không có màn hay mục spec tương ứng. Cần BrSE xếp vào issue in ấn ở unit khác. |
+| FUNC-023 | Spec của màn nhập lô chưa mô tả máy trạng thái vòng đời lô: SCR020, SCR021, SCR022 không có trạng thái lô, nên chưa đủ cơ sở viết DoD kiểm tra được. Để mở; cần bổ sung spec trước, chưa xếp vào issue nào. |
+| FUNC-027 | Việc ghi trước/sau và lý do khi điều chỉnh lô thuộc màn SCR024 (Điều chỉnh thuộc tính lô). Spec SCR024 nằm ngoài phần đã chia nên chưa có issue; để mở, chưa gắn vào issue SCR024. |
+| FUNC-037 | FUNC-037 là ràng buộc CAP-HUMAN-01 (chặn đường nhập tự động); spec đánh dấu ĐẶC THÙ ở L10 và phần truy vết. Issue ràng buộc đặc thù đã phụ trách phần kiểm tra; tách thêm một issue ở đây sẽ tính SWP hai lần. |
+| FUNC-045 | Chặn sửa trực tiếp ngày đã khóa là ràng buộc BR-CLOSE-01 (dòng ĐẶC THÙ), do issue ràng buộc xử lý. Phần spec đã chia không có route nào thực hiện việc chặn, và TECH ghi rõ không kiểm tra ngày khóa. |
+| FUNC-096 | Tích hợp máy in nhiệt thuộc nhóm in ấn FG-14; đặc tả ở SCR130, ngoài phần đã chia. SCR020-Q8 (in phiếu ngay sau đăng ký) còn mở nên chưa có cơ sở viết DoD. |
+| FUNC-098 | Thiết kế bố cục chứng từ in thuộc nhóm FG-14; đặc tả ở SCR130, ngoài phần đã chia. Để mở, chưa gắn vào issue SCR130. |
+| FUNC-099 | Xuất PDF cho 4 biểu mẫu còn lại thuộc nhóm FG-14; phần spec đã chia không có màn hay mục spec tương ứng. Để mở; việc viết spec này ghi ở P5-S17, chưa có issue riêng. |
 | HEN-BM52 | P5-S06 đã chốt: LAB-5 không viết tài liệu BM-2-901-52. Hợp đồng API nằm trong DoD của từng issue API (E17-APIG1 đến E17-APIG5) và ở epic sở hữu API. |
 | HEN-BM54 | BM-2-901-54 là tài liệu mức hàm, không phải việc phát triển của nền tảng chung. P5-S07 đã chốt: không viết ở LAB-5. Đặc tả hàm nằm trong tiêu chí hoàn thành của issue code liên quan, không tách issue riêng. |
-| LECH-SCR060-02 | CSV của RPT-05 đặt ở SCR110 thuộc epic báo cáo; vị trí còn chờ SCR060-Q15. SCR060 chỉ giữ bản màn hình nên không có việc trong unit này. |
-| LECH-SCR060-03 | Bản in A4 theo FORM-SETTLE-01 thuộc SCR131, có spec riêng ở unit khác của epic. SCR060-Q7 đã đóng ngày 08/10, xác định E-1 không thay được SCR131. Liên kết sang SCR131 nằm ở E08-SCR060-FE-NAV. |
-| LECH-SCR060-06 | Phần thiếu gồm CSV và các trường của bản in A4 (số chênh lệch, 備考, 確認者, 出力日時, 出力者), thuộc SCR131 và SCR110 ở unit hoặc epic khác. E-1 giữ nguyên là bản in tạm. |
+| LECH-SCR060-02 | CSV của RPT-05 đặt ở SCR110 thuộc epic báo cáo; vị trí còn chờ SCR060-Q15. SCR060 chỉ giữ bản màn hình nên không có việc ở epic quyết toán. |
+| LECH-SCR060-03 | Bản in A4 theo FORM-SETTLE-01 thuộc SCR131, có spec riêng trong cùng epic. SCR060-Q7 đã đóng ngày 08/10, xác định E-1 không thay được SCR131. Liên kết sang SCR131 nằm ở E08-SCR060-FE-NAV. |
+| LECH-SCR060-06 | Phần thiếu gồm CSV và các trường của bản in A4 (số chênh lệch, 備考, 確認者, 出力日時, 出力者), thuộc SCR131 và SCR110. E-1 giữ nguyên là bản in tạm. |
 | LECH-SCR060-15 | Ngày nghiệp vụ theo lịch chợ cần bảng lịch của SCR140, SCR141 (tầng 3, epic khác). Nguồn cấp lịch chưa chốt (SCR060-Q9, câu QA Q21), nên chưa có đầu vào để làm. |
 
 ## 3. Hạng mục chịu ràng buộc đặc thù
@@ -217,8 +216,8 @@ Cột "Xử lý" chỉ dùng một trong bốn cách của đề.
 | `SERI_BULK_ENTRY` | Chưa có TECH riêng cho nhập hàng loạt せり | đã sửa thiết kế (P5-S13) |
 | FUNC-136; SCR030 | 参加上限 chưa có cột lưu, chưa định nghĩa hạn mức | đã sửa thiết kế (P5-S14) |
 | SCR040, SCR041; `TRADE_DB.md` | Kết quả せり không lưu người và thời điểm xác nhận | đã sửa thiết kế (P5-S15) |
-| `_common/error-codes.md` | Mã lỗi nằm rải rác trong nhiều spec, không có danh mục chung | đã sửa thiết kế (P5-S16) |
-| FUNC-099 | Xuất PDF biểu mẫu chỉ có một câu trong PREMISE LAB-4 | đã sửa thiết kế (P5-S17) |
+| `_common/error-codes.md` | Mã lỗi nằm rải rác trong nhiều spec, không có danh mục chung | để mở vì danh mục mã lỗi chung (P5-S16) đã nêu ở PREMISE nhưng backlog chưa có issue riêng để viết; việc này chưa xếp vào sprint nào |
+| FUNC-099 | Xuất PDF biểu mẫu chỉ có một câu trong PREMISE LAB-4 | để mở vì spec xuất PDF 4 biểu mẫu (P5-S17) đã nêu ở PREMISE nhưng backlog chưa có issue riêng; việc này chưa xếp vào sprint nào |
 | FUNC-122, FUNC-126; SCR170 | Hai FUNC migrate chỉ là nhãn, chưa có thiết kế | đã sửa thiết kế (P5-S18) |
 | `AITAI_CONFIRM_TECH.md` mục 4.2; `MARKET_CALENDAR_DB.md` | Ngày nghiệp vụ hiện tại tính từ 50 lô gần nhất, sai khi ngày mới nhất đã khoá | đã sửa thiết kế (P5-S19) |
 | SCR094; SCR091, SCR092 | Giao vượt số chỉ thị vẫn xác nhận hoàn tất được | đã sửa thiết kế (P5-S20) |

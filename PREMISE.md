@@ -1,6 +1,6 @@
 # PREMISE: backlog LAB-5 khác bản LAB-4 đã nộp ở đâu
 
-Mốc so sánh là bản LAB-4 nộp ngày 12/10/2026 (commit `074467c`). Mỗi dòng có mã `P5-*`; issue và tài liệu khác trỏ về đúng mã này. Script điền cột "Issue bị ảnh hưởng" từ trường `premise_refs` của backlog. Dấu `—` nghĩa là chưa có issue nào trỏ tới dòng đó.
+Mốc so sánh là bản LAB-4 nộp ngày 12/10/2026 (commit `074467c`). Mỗi dòng có mã `P5-*`; các tài liệu khác trong repo trỏ về đúng mã này. Cột "Issue bị ảnh hưởng" do script ghép từ backlog nội bộ (không nằm trong repo); body issue chỉ ghi mã `P5-*` khi issue đổi tiêu chí hoàn thành theo dòng đó. Dấu `—` nghĩa là chưa có issue nào trỏ tới dòng đó.
 
 ## 1. Spec thêm/bỏ/sửa so với LAB-4
 
