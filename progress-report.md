@@ -33,7 +33,7 @@ Bảng dưới ghi trạng thái cuối sprint của từng ticket đã cam kế
 | #2 | SCR030 · Chốt giao dịch thỏa thuận | Story | BrSE | 38 | In Progress | — | Trạng thái dựa trên việc con: còn việc chưa Closed hoặc chưa cam kết |
 | #6 | SCR030 · Tính ngày nghiệp vụ đang mở không giới hạn 50 lô | Dev Task | BE-2 | 3 | Closed | 22/10 | — |
 | #7 | SCR030 · RPC tạo giao dịch một transaction, khóa ngày | Dev Task | BE-1 | 6 | Closed | 23/10 | — |
-| #8 | SCR030 · Migration: CHECK đơn giá và chỗ lưu 参加上限 | Dev Task | BE-2 | 3 | QA Testing | — | Migration CHECK đơn giá đã xong code, đang chạy test DB; phần kiểm tra 参加上限 chờ khách trả lời SCR030-Q7 và đã có việc riêng (#146) |
+| #8 | SCR030 · Migration: CHECK đơn giá và chỗ lưu 参加上限 | Dev Task | BE-2 | 3 | QA Testing | — | Migration CHECK đơn giá đã xong code, đang chạy test DB; phần cột lưu và kiểm 参加上限 chờ khách trả lời SCR030-Q7; cột lưu có việc riêng ở #146 |
 | #13 | SCR030 · Thiết kế ca kiểm thử chốt giao dịch | Test Design | QA-1 | 4 | Closed | 21/10 | — |
 | #4 | SCR032 · Danh sách giao dịch và chuyển trạng thái | Story | BrSE | 25 | In Progress | — | Trạng thái dựa trên việc con: còn việc chưa Closed hoặc chưa cam kết |
 | #22 | SCR032 · FE khung giải thích FIG-012 và nút chuyển trạng thái | Dev Task | FE-1 | 5 | Closed | 21/10 | — |
